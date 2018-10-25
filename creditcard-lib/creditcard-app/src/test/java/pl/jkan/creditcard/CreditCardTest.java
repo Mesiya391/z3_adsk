@@ -23,17 +23,16 @@ public class CreditCardTest {
     public void canBlockCard() {
         
         CreditCard card = new CreditCard();
-        
         card.block();
-        
         Assert.assertTrue(card.isBlocked());
     }
     
-
-    @Test(expected = WithdrawWhenOverTheLimit.class)
-    public void cantWithdrawWhenWhenOverTheLimit() throws Exception{
+    @Test
+    public void withdrawDrecraseAvaiableFounds() throws Exception{
         CreditCard card = new CreditCard();
-        card.assignLimit(200);
-        card.withdraw(300);
+        card.assignLimit(2000);
+        card.withdraw(1000);
+        Asserts.assertTrue(card.getAccountBalance()==1000);
     }
+   
 }
