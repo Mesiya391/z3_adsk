@@ -1,0 +1,5 @@
+---
+rpm_influxdb: https://dl.influxdata.com/influxdb/releases/influxdb-1.5.2.x86_64.rpm
+metrics_db_name: "name"
+metrics_db_passw: "password"
+metrics_db_user: "user"

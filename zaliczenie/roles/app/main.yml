@@ -1,0 +1,27 @@
+---
+- name: Install JRE
+  yum:
+    name: java-1.8.0-openjdk
+    state: present
+- name: Create Path
+  file:
+    path: /opt/carrental
+    state: directory
+- name: Copy .jar to Remote Machine
+  copy:
+    src: "{{jar_location}}"
+    dest: "{{app_location}}"
+- name: Create User for Service
+  user:
+    name: "{{app_user}}"
+- name: Copy Systemd configuration
+  template:
+    src: carrental/car.service
+    dest: /etc/systemd/system/car.service
+- name: Reload service
+  systemd:
+    daemon_reload: yes
+- name: Start APP
+  service:
+    name: car
+    state: restarted
