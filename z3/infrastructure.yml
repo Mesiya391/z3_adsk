@@ -27,6 +27,15 @@
   tasks:
    - include_tasks: tasks/configure-grafana.yml
  
- - hosts: app_nodes
-   become: yes
+- hosts: app_nodes
+  become: yes
+  vars:
+    jar_location: carrental/car_rental.jar
+    app_location: /opt/carrental/car_rental.jar
+    app_user: carrental
+  roles:
+     - application
+     - telegraf
+
+
    
