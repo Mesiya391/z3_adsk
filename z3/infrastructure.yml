@@ -30,9 +30,9 @@
 - hosts: app_nodes
   become: yes
   vars:
-    jar_location: carrental/car_rental.jar
-    app_location: /opt/carrental/car_rental.jar
-    app_user: carrental
+    jar_location: carrental/carrental-0.0.1-SNAPSHOT.jar
+    app_location: /opt/carrental/carrental-0.0.1-SNAPSHOT.jar
+
   roles:
      - application
      - telegraf
